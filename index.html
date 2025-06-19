@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Rate Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interest_rate_calculator.js"></script>
+</head>
+<body>
+    <div id="interest-calculator">
+        <h2>💸 Compound Interest Calculator</h2>
+        <p>
+            Formula : A = P(1+r/n)<sup>nt</sup> + PMT((1+r/n)-1)(r/n)
+        </p>
+        <div class="input-block">
+            <label for="starting-balance">Starting Balance (P) : </label>
+            <input type="text" name="starting-balance" id="starting-balance">
+        </div>
+        <div class="input-block">
+            <label for="contribution">Contribution (PMT) : </label>
+            <input type="text" name="contribution" id="contribution">
+        </div>
+        <div class="input-block">
+            <label for="years">Years (t) : </label>
+            <input type="text" name="years" id="years">
+        </div>
+        <div class="input-block">
+            <label for="interest-rate">% Interest Rate (r) : </label>
+            <input type="text" name="interest-rate" id="interest-rate">
+        </div>
+        <div class="input-block">
+            <label for="compound">Compound Frequency (n): </label>
+            <select name="compound" id="compound"><option value="365">Daily</option>
+                <option value="12" selected="selected">Monthy</option>
+                <option value="1">Annualy</option>
+            </select>
+        </div>
+        <button id="calculate-button">Calculate</button>
+        <div id="result">0</div>
+    </div>
+</body>
+</html>
