@@ -3,6 +3,10 @@
 const btn = document.getElementById('calculate-button');
 btn.addEventListener('click',calculate);
 
+ const ctx = document.getElementById('myChart');
+
+ let currChart;
+
 function calculate(){
      
     let P = Number(document.getElementById("starting-balance").value);
@@ -19,5 +23,28 @@ function calculate(){
      let result = result1 + result2;
 
      document.getElementById("result").innerHTML = result.toFixed(2);
+
+     if(currChart!=null){
+
+         currChart.destroy();
+     }
     
+  currChart =   new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Without interest','Interest'],
+      datasets: [{
+        label: '# Savings',
+        data: [P + PMT*n*t,result],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
 }
